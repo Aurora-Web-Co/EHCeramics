@@ -1,4 +1,28 @@
-.vscode
-.cache
-node_modules
-public
+# Build output
+public/
+
+# Dependencies
+node_modules/
+
+# Eleventy cache
+.cache/
+
+# Claude Code local settings
+.claude/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Editor
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
