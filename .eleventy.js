@@ -1,3 +1,4 @@
+const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 const pluginImages = require("@codestitchofficial/eleventy-plugin-sharp-images");
 const pluginMinifier = require("@codestitchofficial/eleventy-plugin-minify");
 const pluginSitemap = require("@quasibit/eleventy-plugin-sitemap");
@@ -19,6 +20,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.on("eleventy.after", javascript);
     eleventyConfig.on("eleventy.after", sass);
 
+    eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
     eleventyConfig.addPlugin(pluginImages, configImages);
     eleventyConfig.addPlugin(pluginSitemap, configSitemap);
 
