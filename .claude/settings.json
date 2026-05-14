@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm audit *)",
+      "Bash(npm show *)",
+      "Bash(Get-ChildItem -Path \"h:\\\\Workspace\\\\EHCeramics\" -Recurse -Force)",
+      "Bash(Select-Object FullName)",
+      "Bash(mkdir -p \"h:\\\\Workspace\\\\EHCeramics\\\\scripts\" 2>&1; echo \"done\")",
+      "Bash(ls \"h:\\\\Workspace\" 2>&1)",
+      "Read(//h/Workspace/**)",
+      "Bash(mkdir -p \"h:\\\\Workspace\\\\11ty-template\\\\scripts\" 2>&1; echo \"done\")",
+      "Bash(git -C \"h:\\\\Workspace\\\\EHCeramics\" log --oneline -10)",
+      "Bash(Get-ChildItem \"h:\\\\Workspace\\\\EHCeramics\\\\.vscode\" -File)",
+      "Bash(Select-Object Name, LastWriteTime)",
+      "PowerShell(Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.IPAddress -notmatch '^127\\\\.' -and $_.IPAddress -notmatch '^169\\\\.' } | Select-Object IPAddress, InterfaceAlias)"
+    ],
+    "additionalDirectories": [
+      "h:\\Workspace\\EHCeramics",
+      "h:\\Workspace\\11ty-template"
+    ]
+  }
+}

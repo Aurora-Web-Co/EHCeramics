@@ -1,0 +1,37 @@
+---
+title: "gallery"
+description: ""
+permalink: "/gallery/"
+tags: "sitemap"
+---
+
+{% extends "layouts/base.html" %} {% block head %}
+<link rel="stylesheet" href="/assets/css/gallery.css" />
+{% endblock %} {% block body %}
+
+<section id="gallery">
+  <div class="cs-container">
+    <div class="cs-content">
+      <p class="cs-title">Gallery</p>
+    </div>
+    <div class="cs-gallery">
+      <img src="/assets/images/tea-set-1.jpg" />
+      <img src="/assets/images/tea-set-2.jpg" />
+      <img src="/assets/images/tea-set-3.jpg" />
+      <img src="/assets/images/tea-set-4.jpg" />
+      <img src="/assets/images/sake-set-1.jpg" />
+      <img src="/assets/images/sake-set-2.jpg" />
+      <img src="/assets/images/urn-1.jpg" />
+      <img src="/assets/images/urn-2.jpg" />
+      <img src="/assets/images/urn-3.jpg" />
+    </div>
+    <div class="cs-content">
+      <img class="divider" src="/assets/svgs/Divider-large.svg" />
+    </div>
+    <div class="cs-content">
+      <a class="cs-button" href="#">back to top</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

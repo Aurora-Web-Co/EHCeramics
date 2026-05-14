@@ -1,0 +1,35 @@
+<footer id="cs-footer">
+  <div class="cs-container">
+    <div class="cs-logo-group">
+      <a aria-label="go back to home" class="cs-logo" href="#">
+        <img
+          class="cs-logo-img"
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          src="/assets/svgs/logo.svg"
+          alt="{{ client.name }} logo"
+          width="180"
+          height="40"
+        />
+      </a>
+    </div>
+    <a class="cs-contact-link" href="mailto:{{ client.email }}"
+      >{{ client.email }}</a
+    >
+    <ul class="cs-nav">
+      <li class="cs-nav-li"><a class="cs-nav-link" href="#about">about</a></li>
+      <li class="cs-nav-li"><a class="cs-nav-link" href="#work">work</a></li>
+      <li class="cs-nav-li">
+        <a class="cs-nav-link" href="#gallery">gallery</a>
+      </li>
+      <li class="cs-nav-li">
+        <a class="cs-nav-link" href="#contact">contact</a>
+      </li>
+    </ul>
+  </div>
+  <p class="cs-header">Handmade in Scotland</p>
+  <p class="cs-copyright">
+    © {% year %} {{ client.name }}. All rights reserved.
+  </p>
+</footer>

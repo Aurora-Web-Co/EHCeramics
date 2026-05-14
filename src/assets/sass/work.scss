@@ -1,0 +1,20 @@
+/* work Page Styles */
+
+@media only screen and (min-width: 0px) {
+  #work {
+    padding: 3rem 0 0 0;
+
+    .cs-topper-section {
+      padding: 2rem 0 1rem 0;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .cs-button {
+      text-decoration: none;
+      color: inherit;
+      font-family: var(--headerFont);
+    }
+  }
+}

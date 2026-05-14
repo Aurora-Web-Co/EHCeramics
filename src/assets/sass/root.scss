@@ -1,0 +1,512 @@
+/*-- -------------------------- -->
+<---        Core Styles         -->
+<--- -------------------------- -*/
+
+@media only screen and (min-width: 0px) {
+  :root {
+    /* Brand colours — update these per project */
+    --primary: #101010;
+    --secondary: #fffcf4;
+
+    /* Backgrounds */
+    --bg-card: #1010109b;
+
+    /* Typography scale */
+    /* 13px - 16px */
+    --topperFontSize: clamp(1.2rem, 1.2vw, 2rem);
+    /* 31px - 49px */
+    --headerFontSize: clamp(1.5rem, 1.5vw, 3.0625rem);
+    --bodyFontSize: 1rem;
+    --letterSpacing: 12%;
+
+    /* Spacing */
+    /* 60px - 100px top and bottom */
+    --sectionPadding: 0 0 0 0;
+
+    /* Fonts — update to match project typeface */
+    --headerFont: "Shippori Mincho";
+    --bodyFont: "Lato";
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: clip;
+    font-family: var(--bodyFont);
+    font-weight: 300;
+    font-size: 100%;
+    color: var(--bodyTextColor);
+    background-color: var(--secondary);
+    scroll-behavior: smooth;
+    letter-spacing: var(--letterSpacing);
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Screen reader skip link */
+  .skip {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    &:focus {
+      top: 0;
+      left: 0;
+      z-index: 999999;
+    }
+  }
+
+  /* Common typographic helpers */
+  .cs-topper {
+    font-size: var(--topperFontSize);
+    font-family: var(--headerFont);
+    line-height: 1em;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .cs-title {
+    font-size: var(--headerFontSize);
+    font-family: var(--headerFont);
+    line-height: 1.2em;
+    color: var(--primary);
+    margin: 0 0 1rem;
+  }
+
+  .cs-text {
+    font-size: var(--bodyFontSize);
+    line-height: 1.5em;
+    color: var(--primary);
+    padding: 0 0 1rem 0;
+    width: 100%;
+  }
+
+  /* Container */
+  .cs-container {
+    width: 47vw;
+    min-width: min(40rem, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cs-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Button */
+  .cs-button-solid {
+    display: inline-block;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    background-color: var(--secondary);
+    color: var(--primary);
+    font-size: 1rem;
+    text-decoration: none;
+    font-family: var(--headerFont);
+    border: solid var(--primary) 2px;
+    transition: box-shadow 0.3s ease;
+    &:hover {
+      box-shadow: 2px 2px;
+      cursor: pointer;
+    }
+  }
+
+  .divider {
+    padding: 5rem 0 5rem 0;
+  }
+
+  .divider-small {
+    padding: 1rem 0 0 0;
+  }
+
+  .cs-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem 0;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .cs-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(16, 16, 16, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1002;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    &.cs-lightbox-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cs-lightbox-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cs-lightbox-track {
+      overflow: hidden;
+      width: 70vw;
+
+      @media (max-width: 30rem) {
+        width: 95vw;
+      }
+    }
+
+    .cs-lightbox-slides {
+      display: flex;
+      align-items: center;
+      transition: transform 0.35s ease;
+
+      img {
+        flex: 0 0 100%;
+        max-height: 75vh;
+        width: 100%;
+        object-fit: contain;
+        padding: 0 1.5rem;
+      }
+    }
+
+    .cs-lightbox-controls {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+    }
+
+    .cs-lightbox-prev,
+    .cs-lightbox-next {
+      background: none;
+      border: none;
+      color: var(--secondary);
+      font-size: 2.5rem;
+      cursor: pointer;
+      padding: 0.5rem 2rem;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    @media (min-width: 40rem) {
+      .cs-lightbox-inner {
+        position: relative;
+      }
+
+      .cs-lightbox-controls {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        pointer-events: none;
+        width: auto;
+      }
+
+      .cs-lightbox-prev,
+      .cs-lightbox-next {
+        pointer-events: all;
+      }
+    }
+
+    .cs-lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--secondary);
+      font-size: 3rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0.25rem 0.75rem;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+/*-- -------------------------- -->
+<---         Navigation         -->
+<--- -------------------------- -*/
+
+@media only screen and (min-width: 0px) {
+  #cs-navigation {
+    width: 100%;
+
+    .cs-container {
+      padding: 1rem 0 0 0;
+    }
+
+    .cs-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0 0 0;
+    }
+
+    .cs-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 0 0 0.5rem 0;
+      img {
+        height: 2.5rem;
+        width: auto;
+      }
+    }
+
+    .cs-nav-list {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .cs-nav-link {
+      font-size: 1rem;
+      color: var(--headerColor);
+      text-decoration: none;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: currentColor;
+        transition: width 0.3s ease;
+      }
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 47.9375rem) {
+  #cs-hamburger {
+    &.cs-visible .cs-menu-toggle {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cs-menu-toggle {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1001;
+      width: 3rem;
+      height: 3rem;
+      padding: 0.5rem;
+      background: var(--secondary);
+      border: 1px solid var(--primary);
+      cursor: pointer;
+      flex-shrink: 0;
+
+      .cs-bar {
+        display: block;
+        position: absolute;
+        left: 0.5rem;
+        width: calc(100% - 1rem);
+        height: 0.1rem;
+        background-color: var(--primary);
+        transition:
+          top 0.3s ease,
+          transform 0.3s ease,
+          width 0.3s ease,
+          left 0.3s ease;
+
+        &:nth-child(1) {
+          top: 0.75rem;
+        }
+        &:nth-child(2) {
+          top: calc(50% - 0.075rem);
+        }
+        &:nth-child(3) {
+          top: calc(50% - 0.075rem);
+        }
+        &:nth-child(4) {
+          top: calc(100% - 0.85rem);
+        }
+      }
+
+      &.cs-active {
+        .cs-bar:nth-child(1) {
+          top: calc(50% - 0.075rem);
+          left: 50%;
+          width: 0;
+        }
+        .cs-bar:nth-child(2) {
+          transform: rotate(45deg);
+        }
+        .cs-bar:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+        .cs-bar:nth-child(4) {
+          top: calc(50% - 0.075rem);
+          left: 50%;
+          width: 0;
+        }
+      }
+    }
+
+    .cs-mobile-menu {
+      position: fixed;
+      inset: 0;
+      background-color: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+
+      &.cs-open {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .cs-nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+        list-style: none;
+        padding: 0;
+      }
+
+      .cs-nav-link {
+        font-size: 1rem;
+        font-family: var(--headerFont);
+        color: var(--primary);
+        text-decoration: none;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background-color: currentColor;
+          transition: width 0.3s ease;
+        }
+
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 48rem) {
+  #cs-hamburger {
+    display: none;
+  }
+}
+
+/*-- -------------------------- -->
+<---           Footer           -->
+<--- -------------------------- -*/
+
+@media only screen and (min-width: 0px) {
+  #cs-footer {
+    padding: 2rem 0 0 0;
+    background-color: var(--bg-section-alt);
+    font-family: var(--headerFont);
+
+    .cs-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cs-logo-img {
+      height: 2.5rem;
+      width: auto;
+    }
+
+    .cs-header {
+      font-size: 1rem;
+      color: var(--headerColor);
+      text-align: center;
+    }
+
+    .cs-nav {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 1rem 0 1rem 0;
+    }
+
+    .cs-nav-link,
+    .cs-contact-link {
+      font-size: 0.875rem;
+      color: var(--bodyTextColor);
+      text-decoration: none;
+      line-height: 2;
+      transition: color 0.2s ease;
+      &:hover {
+        color: var(--primary);
+      }
+      padding: 1rem 0 0 0;
+    }
+
+    .cs-copyright {
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--bodyTextColor);
+      margin-top: 0.5rem;
+      padding: 0 0 3rem 0;
+      font-family: var(--bodyFont);
+    }
+  }
+}
+
+@media only screen and (min-width: 48rem) {
+  #cs-footer {
+    .cs-container {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
