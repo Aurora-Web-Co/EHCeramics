@@ -52,16 +52,6 @@
         "/assets/images/mugs-3.jpg",
         "/assets/images/mugs-4.jpg"
       ]
-    },
-    {
-      "title": "The poo",
-      "featured": true,
-      "description": [
-        "Lovely big steamy poo"
-      ],
-      "images": [
-        "/assets/images/Intro-image.jpg"
-      ]
     }
   ]
 }
