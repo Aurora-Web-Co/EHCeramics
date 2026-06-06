@@ -30,6 +30,9 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addPassthroughCopy("./src/assets");
     eleventyConfig.addPassthroughCopy("./src/_redirects");
+    eleventyConfig.addPassthroughCopy("./src/admin");
+
+    eleventyConfig.addFilter("where", (array, key, value) => array.filter(item => item[key] === value));
 
     eleventyConfig.addFilter("postDate", filterPostDate);
     eleventyConfig.addFilter("isoDate", filterIsoDate);

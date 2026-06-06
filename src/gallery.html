@@ -15,15 +15,9 @@ tags: "sitemap"
       <p class="cs-title">Gallery</p>
     </div>
     <div class="cs-gallery">
-      <img src="/assets/images/tea-set-1.jpg" />
-      <img src="/assets/images/tea-set-2.jpg" />
-      <img src="/assets/images/tea-set-3.jpg" />
-      <img src="/assets/images/tea-set-4.jpg" />
-      <img src="/assets/images/sake-set-1.jpg" />
-      <img src="/assets/images/sake-set-2.jpg" />
-      <img src="/assets/images/urn-1.jpg" />
-      <img src="/assets/images/urn-2.jpg" />
-      <img src="/assets/images/urn-3.jpg" />
+      {% for image in galleryImages %}
+      <img src="{{ image }}" />
+      {% endfor %}
     </div>
     <div class="cs-content">
       <img class="divider" src="/assets/svgs/Divider-large.svg" />

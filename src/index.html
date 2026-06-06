@@ -10,10 +10,13 @@ tags: "sitemap"
 <script defer src="/assets/js/local.js"></script>
 {% endblock %} {% block body %}
 
+{% set featuredWorks = works.items | where("featured", true) %}
+{% set hiddenWorks = works.items | where("featured", false) %}
+
 <section id="hero">
   <div class="cs-container">
     <div class="cs-content">
-      <img src="/assets/images/Intro-image.jpg" />
+      <img src="{{ site.heroImage }}" />
     </div>
   </div>
 </section>
@@ -21,29 +24,12 @@ tags: "sitemap"
 <section id="about">
   <div class="cs-container">
     <div class="cs-content">
-      <p class="cs-title">Present</p>
+      <p class="cs-title">{{ site.about.title }}</p>
     </div>
     <div class="cs-content">
-      <p class="cs-text">
-        I'm a ceramicist based in Scotland. I make work by hand, and find most
-        of my inspiration somewhere between the studio and the coast.
-      </p>
-      <p class="cs-text">
-        I studied ceramics at Grays School of Art, where I developed a practice
-        rooted in material honesty and careful making. I was awarded for my work
-        there, and it gave me the foundation to take the craft seriously.
-      </p>
-      <p class="cs-text">
-        I now work as Lead Ceramicist running the studio and teaching people at
-        all stages of their practice. I find the teaching side genuinely
-        rewarding - watching someone develop a feel for clay is one of those
-        things that doesn't get old. Alongside that, I continue to develop my
-        own collections, while experimenting within my own practice
-      </p>
-      <p class="cs-text">
-        This site is home to that work. If something resonates, I'd love to hear
-        from you.
-      </p>
+      {% for para in site.about.body %}
+      <p class="cs-text">{{ para }}</p>
+      {% endfor %}
     </div>
     <div class="cs-button">
       <a href="#contact" class="cs-button-solid"> Contact me</a>
@@ -60,104 +46,50 @@ tags: "sitemap"
       <p class="cs-title">Work & Collections</p>
     </div>
     <div class="cs-content">
-      <p class="cs-text">
-        I work in small runs - each piece thrown by hand and finished at its own
-        pace. Nothing is exactly repeated. What you'll find here is my current
-        work.
-      </p>
+      <p class="cs-text">{{ site.work.intro }}</p>
     </div>
+    {% for work in featuredWorks %}
     <div class="cs-content">
       <div class="cs-topper-section">
-        <p class="cs-topper">The Tea Set</p>
+        <p class="cs-topper">{{ work.title }}</p>
       </div>
-      <div class="cs-text">
-        This is a kyusu and four yunomi - a Japanese side-handled teapot and its
-        cups, made to be used together. The form is rooted in Japanese tea
-        culture, but the clay and the making are entirely my own.
-      </div>
-      <div class="cs-text">
-        The body is dark stoneware, left largely unglazed so the texture does
-        the work. I carved the surface of each cup by hand - the same rhythm of
-        marks across all four, though no two came out quite the same. That felt
-        right for something meant to be shared. The glaze sits only at the rim,
-        pooling slightly where it meets the raw clay - that boundary between
-        finished and unfinished is something I find myself returning to a lot.
-      </div>
-      <div class="cs-text">
-        The kyusu shape suits the way I think about tea - unhurried, considered,
-        made for pouring slowly. There's something about a side handle that asks
-        you to slow down and hold it properly.
-      </div>
-      <div class="cs-text">
-        This is a functional set, made to be used. The pieces will develop their
-        own character over time, which is part of the point.
-      </div>
+      {% for para in work.description %}
+      <div class="cs-text">{{ para }}</div>
+      {% endfor %}
     </div>
     <div class="cs-gallery">
-      <img src="/assets/images/tea-set-1.jpg" />
-      <img src="/assets/images/tea-set-2.jpg" />
-      <img src="/assets/images/tea-set-3.jpg" />
-      <img src="/assets/images/tea-set-4.jpg" />
+      {% for image in work.images %}
+      <img src="{{ image }}" />
+      {% endfor %}
     </div>
+    {% if not loop.last %}
     <div class="cs-content">
       <img class="divider-small" src="/assets/svgs/Divider-small.svg" />
     </div>
-    <div class="cs-content">
-      <div class="cs-topper-section">
-        <p class="cs-topper">Scottish Origins Sake Vessel</p>
-      </div>
-      <div class="cs-text">
-        Inspired by the Scottish mountains, these sake vessels bring a touch of
-        ruggedness and nature to your drinking experience.
-      </div>
-      <div class="cs-text">
-        If you're interested in this piece, or have something specific in mind,
-        feel free to get in touch. I'm happy to discuss availability and
-        commissions.
-      </div>
-    </div>
-    <div class="cs-gallery">
-      <img src="/assets/images/sake-set-1.jpg" />
-      <img src="/assets/images/sake-set-2.jpg" />
-    </div>
+    {% endif %}
+    {% endfor %}
+    {% if hiddenWorks | length %}
     <div class="hidden-work">
+      {% for work in hiddenWorks %}
       <div class="cs-content">
         <div class="cs-topper-section">
-          <p class="cs-topper">Urn Set</p>
+          <p class="cs-topper">{{ work.title }}</p>
         </div>
-        <div class="cs-text">
-          A collection of hand-thrown ceramic vessels exploring form, texture,
-          and restraint. These large-scale pieces combine smooth matte finishes
-          with finely carved detailing around the rim, creating a balance
-          between precision and organic simplicity.
-        </div>
-        <div class="cs-text">
-          Photographed within a natural landscape, the work reflects an ongoing
-          dialogue between contemporary craft and the quiet rhythms of the
-          environment.
-        </div>
+        {% for para in work.description %}
+        <div class="cs-text">{{ para }}</div>
+        {% endfor %}
       </div>
       <div class="cs-gallery">
-        <img src="/assets/images/urn-1.jpg" />
-        <img src="/assets/images/urn-3.jpg" />
+        {% for image in work.images %}
+        <img src="{{ image }}" />
+        {% endfor %}
       </div>
-      <div class="cs-content">
-        <div class="cs-topper-section">
-          <p class="cs-topper">Mugs</p>
-        </div>
-        <div class="cs-text">Filler</div>
-        <div class="cs-text">Filler</div>
-      </div>
-      <div class="cs-gallery">
-        <img src="/assets/images/mugs-1.jpg" />
-        <img src="/assets/images/mugs-2.jpg" />
-        <img src="/assets/images/mugs-3.jpg" />
-        <img src="/assets/images/mugs-4.jpg" />
-      </div>
+      {% endfor %}
     </div>
     <div class="cs-button" id="work-view-more">
       <a onclick="viewWork()" class="cs-button-solid"> View more</a>
     </div>
+    {% endif %}
     <div class="cs-content">
       <img class="divider" src="/assets/svgs/Divider-large.svg" />
     </div>
@@ -170,26 +102,26 @@ tags: "sitemap"
       <p class="cs-title">Gallery</p>
     </div>
     <div class="cs-gallery" data-lightbox-group="gallery">
-      <img src="/assets/images/tea-set-1.jpg" />
-      <img src="/assets/images/tea-set-2.jpg" />
-      <img src="/assets/images/tea-set-3.jpg" />
-      <img src="/assets/images/tea-set-4.jpg" />
-      <img src="/assets/images/sake-set-1.jpg" />
-      <img src="/assets/images/sake-set-2.jpg" />
+      {% for image in galleryImages %}
+        {% if loop.index <= 6 %}
+        <img src="{{ image }}" />
+        {% endif %}
+      {% endfor %}
     </div>
+    {% if galleryImages | length > 6 %}
     <div class="hidden-gallery">
       <div class="cs-gallery" data-lightbox-group="gallery">
-        <img src="/assets/images/urn-1.jpg" />
-        <img src="/assets/images/urn-3.jpg" />
-        <img src="/assets/images/mugs-1.jpg" />
-        <img src="/assets/images/mugs-2.jpg" />
-        <img src="/assets/images/mugs-3.jpg" />
-        <img src="/assets/images/mugs-4.jpg" />
+        {% for image in galleryImages %}
+          {% if loop.index > 6 %}
+          <img src="{{ image }}" />
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
     <div class="cs-button" id="gallery-view-more">
       <a onclick="viewGallery()" class="cs-button-solid"> View more</a>
     </div>
+    {% endif %}
     <div class="cs-content">
       <img class="divider" src="/assets/svgs/Divider-large.svg" />
     </div>
@@ -202,11 +134,7 @@ tags: "sitemap"
       <p class="cs-title">Contact</p>
     </div>
     <div class="cs-content">
-      <p class="cs-text">
-        Whether you're interested in buying a piece, commissioning something, or
-        just want to know more - I'm happy to hear from you. Use the form below
-        or drop me a line directly.
-      </p>
+      <p class="cs-text">{{ site.contact.intro }}</p>
     </div>
     <div class="cs-content">
       <form id="cs-form" name="Contact Form" method="post" netlify>
@@ -230,13 +158,9 @@ tags: "sitemap"
     </div>
     <div class="cs-content">
       <div class="cs-topper-section">
-        <p class="cs-topper">Comission note</p>
+        <p class="cs-topper">{{ site.contact.commissionHeading }}</p>
       </div>
-      <div class="cs-text">
-        I take on a small number of commissions each year. If you have a
-        specific form, occasion, or brief in mind, it's worth getting in touch
-        early so we can talk it through.
-      </div>
+      <div class="cs-text">{{ site.contact.commissionBody }}</div>
     </div>
     <div class="cs-content">
       <img class="divider" src="/assets/svgs/Divider-large.svg" />

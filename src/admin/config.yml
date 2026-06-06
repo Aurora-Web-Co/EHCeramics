@@ -1,0 +1,126 @@
+backend:
+  name: github
+  repo: Aurora-Web-Co/EHCeramics
+  branch: main
+  base_url: https://ehceramics-oauth.lewism1912.workers.dev
+
+local_backend: true
+
+media_folder: src/assets/images
+public_folder: /assets/images
+
+collections:
+  - name: works
+    label: Works
+    files:
+      - name: all-works
+        label: All Works
+        file: src/_data/works.json
+        fields:
+          - label: Works
+            name: items
+            widget: list
+            fields:
+              - label: Title
+                name: title
+                widget: string
+              - label: Featured on homepage
+                name: featured
+                widget: boolean
+                default: false
+                hint: "Featured works appear immediately on the homepage. Non-featured works are hidden behind 'View more'."
+              - label: Description
+                name: description
+                widget: list
+                label_singular: Paragraph
+                field:
+                  label: Paragraph
+                  name: paragraph
+                  widget: text
+              - label: Images
+                name: images
+                widget: list
+                label_singular: Image
+                field:
+                  label: Image
+                  name: image
+                  widget: image
+
+  - name: site
+    label: Site Content
+    files:
+      - name: site-content
+        label: Site Content
+        file: src/_data/site.json
+        fields:
+          - label: Author name
+            name: authorName
+            widget: string
+          - label: Hero image
+            name: heroImage
+            widget: image
+          - label: About section
+            name: about
+            widget: object
+            fields:
+              - label: Title
+                name: title
+                widget: string
+              - label: Paragraphs
+                name: body
+                widget: list
+                label_singular: Paragraph
+                field:
+                  label: Paragraph
+                  name: paragraph
+                  widget: text
+          - label: Work section
+            name: work
+            widget: object
+            fields:
+              - label: Intro text
+                name: intro
+                widget: text
+          - label: Contact section
+            name: contact
+            widget: object
+            fields:
+              - label: Intro text
+                name: intro
+                widget: text
+              - label: Commission note heading
+                name: commissionHeading
+                widget: string
+              - label: Commission note body
+                name: commissionBody
+                widget: text
+
+  - name: client
+    label: Settings
+    files:
+      - name: client-settings
+        label: Client Settings
+        file: src/_data/client.json
+        fields:
+          - label: Site name
+            name: name
+            widget: string
+          - label: Email address
+            name: email
+            widget: string
+          - label: Socials
+            name: socials
+            widget: object
+            fields:
+              - label: Instagram
+                name: instagram
+                widget: string
+                required: false
+              - label: Facebook
+                name: facebook
+                widget: string
+                required: false
+          - label: Domain
+            name: domain
+            widget: string
+            hint: "Include https:// and no trailing slash"

@@ -1,0 +1,22 @@
+{
+  "authorName": "Euan Hunter",
+  "footerTagline": "Handmade in Scotland",
+  "heroImage": "/assets/images/Intro-image.jpg",
+  "about": {
+    "title": "Present",
+    "body": [
+      "I'm a ceramicist based in Scotland. I make work by hand, and find most of my inspiration somewhere between the studio and the coast.",
+      "I studied ceramics at Grays School of Art, where I developed a practice rooted in material honesty and careful making. I was awarded for my work there, and it gave me the foundation to take the craft seriously.",
+      "I now work as Lead Ceramicist running the studio and teaching people at all stages of their practice. I find the teaching side genuinely rewarding - watching someone develop a feel for clay is one of those things that doesn't get old. Alongside that, I continue to develop my own collections, while experimenting within my own practice",
+      "This site is home to that work. If something resonates, I'd love to hear from you."
+    ]
+  },
+  "work": {
+    "intro": "I work in small runs - each piece thrown by hand and finished at its own pace. Nothing is exactly repeated. What you'll find here is my current work."
+  },
+  "contact": {
+    "intro": "Whether you're interested in buying a piece, commissioning something, or just want to know more - I'm happy to hear from you. Use the form below or drop me a line directly.",
+    "commissionHeading": "Commission note",
+    "commissionBody": "I take on a small number of commissions each year. If you have a specific form, occasion, or brief in mind, it's worth getting in touch early so we can talk it through."
+  }
+}
