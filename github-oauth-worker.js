@@ -30,6 +30,7 @@ export default {
           client_id: env.GITHUB_CLIENT_ID,
           client_secret: env.GITHUB_CLIENT_SECRET,
           code,
+          redirect_uri: `${url.origin}/callback`,
         }),
       });
 
@@ -42,13 +43,30 @@ export default {
         );
       }
 
-      const html = `<!DOCTYPE html><html><body><script>
-        (function() {
-          const msg = 'authorization:github:success:' + JSON.stringify({ token: '${data.access_token}', provider: 'github' });
-          window.opener.postMessage(msg, '*');
-          window.close();
-        })();
-      <\/script></body></html>`;
+      const token = data.access_token;
+      const html = `<!DOCTYPE html>
+<html>
+<body>
+<p>Authenticating...</p>
+<script>
+  (function() {
+    var token = "${token}";
+    var msg = 'authorization:github:success:' + JSON.stringify({ token: token, provider: 'github' });
+    if (!window.opener) {
+      document.body.innerHTML = '<p>Error: opener window not found. Close this and try again.</p>';
+      return;
+    }
+    try {
+      window.opener.postMessage(msg, '*');
+    } catch(e) {
+      document.body.innerHTML = '<p>Error sending message: ' + e.message + '</p>';
+      return;
+    }
+    setTimeout(function() { window.close(); }, 500);
+  })();
+<\/script>
+</body>
+</html>`;
 
       return new Response(html, {
         headers: { "Content-Type": "text/html" },
