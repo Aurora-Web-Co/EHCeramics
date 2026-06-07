@@ -52,6 +52,16 @@
         "/assets/images/mugs-3.jpg",
         "/assets/images/mugs-4.jpg"
       ]
+    },
+    {
+      "title": "Test",
+      "featured": true,
+      "description": [
+        "Test"
+      ],
+      "images": [
+        "/assets/images/Intro-image.jpg"
+      ]
     }
   ]
 }
