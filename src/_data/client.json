@@ -1,20 +1,20 @@
 {
   "name": "EH Ceramics",
   "email": "email@example.com",
-  "phoneForTel": "",
-  "phoneFormatted": "",
+  "socials": {
+    "instagram": "",
+    "facebook": ""
+  },
+  "domain": "https://www.ehceramics.com",
   "address": {
+    "city": "",
+    "country": "",
     "lineOne": "",
     "lineTwo": "",
-    "city": "",
+    "mapLink": "",
     "state": "",
-    "zip": "",
-    "country": "",
-    "mapLink": ""
+    "zip": ""
   },
-  "socials": {
-    "facebook": "",
-    "instagram": ""
-  },
-  "domain": "https://www.example.com"
+  "phoneFormatted": "",
+  "phoneForTel": ""
 }
