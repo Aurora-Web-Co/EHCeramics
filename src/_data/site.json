@@ -17,6 +17,8 @@
   "contact": {
     "intro": "Whether you're interested in buying a piece, commissioning something, or just want to know more - I'm happy to hear from you. Use the form below or drop me a line directly.",
     "commissionHeading": "Commission note",
-    "commissionBody": "I take on a small number of commissions each year. If you have a specific form, occasion, or brief in mind, it's worth getting in touch early so we can talk it through."
+    "commissionBody": "I take on a small number of commissions each year. If you have a specific form, occasion, or brief in mind, it's worth getting in touch early so we can talk it through.",
+    "thankYouHeading": "Thank you",
+    "thankYouBody": "Your message has been sent. I'll get back to you as soon as I can."
   }
 }

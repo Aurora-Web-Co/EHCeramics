@@ -32,6 +32,15 @@
       transition: height 0.7s ease-in-out;
     }
 
+    .cs-form-success {
+      width: 100%;
+      padding: 1rem 0 0 0;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
     .cs-topper-section {
       padding: 2rem 0 1rem 0;
       width: 100%;
@@ -65,6 +74,10 @@
 
   #contact {
     padding: var(--sectionPadding);
+
+    .cs-form-wrap {
+      width: 100%;
+    }
 
     #cs-form {
       padding: 1rem 0 0 0;
@@ -109,6 +122,19 @@
         max-height: calc(1.5em * 10 + 2rem);
       }
 
+      &[hidden] {
+        display: none;
+      }
+
+      .cs-form-error {
+        margin: 0;
+        font-size: var(--bodyFontSize);
+
+        a {
+          color: inherit;
+        }
+      }
+
       .cs-button-solid {
         align-self: flex-start;
         background-color: var(--primary);
@@ -123,6 +149,15 @@
           background-color: var(--secondary);
           color: var(--primary);
         }
+      }
+    }
+
+    .cs-form-success {
+      width: 100%;
+      padding: 1rem 0 0 0;
+
+      &:focus {
+        outline: none;
       }
     }
 

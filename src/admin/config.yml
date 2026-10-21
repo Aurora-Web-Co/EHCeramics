@@ -96,6 +96,13 @@ collections:
               - label: Commission note body
                 name: commissionBody
                 widget: text
+              - label: Thank-you heading
+                name: thankYouHeading
+                widget: string
+                hint: "Shown in place of the contact form after a message is sent"
+              - label: Thank-you message
+                name: thankYouBody
+                widget: text
 
   - name: client
     label: Settings

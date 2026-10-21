@@ -137,24 +137,48 @@ tags: "sitemap"
       <p class="cs-text">{{ site.contact.intro }}</p>
     </div>
     <div class="cs-content">
-      <form id="cs-form" name="Contact Form" method="post" netlify>
-        <input required type="text" id="name" name="name" placeholder="Name" />
-        <input
-          required
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Email address"
-        />
-        <textarea
-          required
-          id="message"
-          name="message"
-          placeholder="Your message : Maximum 10 lines"
-          rows="1"
-        ></textarea>
-        <button class="cs-button-solid" type="submit">Send message</button>
-      </form>
+      <div class="cs-form-wrap">
+        <form
+          id="cs-form"
+          name="Contact Form"
+          method="post"
+          netlify
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="Contact Form" />
+          <p hidden>
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </p>
+          <input required type="text" id="name" name="name" placeholder="Name" />
+          <input
+            required
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email address"
+          />
+          <textarea
+            required
+            id="message"
+            name="message"
+            placeholder="Your message : Maximum 10 lines"
+            rows="1"
+          ></textarea>
+          <button class="cs-button-solid" type="submit">Send message</button>
+          <p class="cs-form-error" id="cs-form-error" role="alert" hidden>
+            Sorry, your message couldn't be sent. Please try again, or email
+            <a href="mailto:{{ client.email }}">{{ client.email }}</a>.
+          </p>
+        </form>
+        <div class="cs-form-success" id="cs-form-success" role="status" tabindex="-1" hidden>
+          <div class="cs-topper-section">
+            <p class="cs-topper">{{ site.contact.thankYouHeading or "Thank you" }}</p>
+          </div>
+          <p class="cs-text">
+            {{ site.contact.thankYouBody or "Your message has been sent. I'll get back to you as soon as I can." }}
+          </p>
+        </div>
+      </div>
     </div>
     <div class="cs-content">
       <div class="cs-topper-section">
