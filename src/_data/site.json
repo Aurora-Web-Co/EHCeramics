@@ -1,7 +1,6 @@
 {
   "authorName": "Euan Hunter",
-  "footerTagline": "Handmade in Scotland",
-  "heroImage": "/assets/images/Intro-image.jpg",
+  "heroImage": "/assets/images/euan .png",
   "about": {
     "title": "Present",
     "body": [
@@ -20,5 +19,6 @@
     "commissionBody": "I take on a small number of commissions each year. If you have a specific form, occasion, or brief in mind, it's worth getting in touch early so we can talk it through.",
     "thankYouHeading": "Thank you",
     "thankYouBody": "Your message has been sent. I'll get back to you as soon as I can."
-  }
+  },
+  "footerTagline": "Handmade in Scotland"
 }
