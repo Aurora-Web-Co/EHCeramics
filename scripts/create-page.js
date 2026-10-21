@@ -48,7 +48,7 @@ tags: "sitemap"
 {% extends "layouts/base.html" %}
 
 {% block head %}
-<link rel="stylesheet" href="/assets/css/${slug}.css" />
+<link rel="stylesheet" href="/assets/css/${slug}.css?v={{ build.version }}" />
 {% endblock %}
 
 {% block body %}

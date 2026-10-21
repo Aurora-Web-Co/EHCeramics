@@ -6,7 +6,7 @@ tags: "sitemap"
 ---
 
 {% extends "layouts/base.html" %} {% block head %}
-<link rel="stylesheet" href="/assets/css/gallery.css" />
+<link rel="stylesheet" href="/assets/css/gallery.css?v={{ build.version }}" />
 {% endblock %} {% block body %}
 
 <section id="gallery">

@@ -6,8 +6,8 @@ tags: "sitemap"
 ---
 
 {% extends "layouts/base.html" %} {% block head %}
-<link rel="stylesheet" href="/assets/css/local.css" />
-<script defer src="/assets/js/local.js"></script>
+<link rel="stylesheet" href="/assets/css/local.css?v={{ build.version }}" />
+<script defer src="/assets/js/local.js?v={{ build.version }}"></script>
 {% endblock %} {% block body %}
 
 {% set featuredWorks = works.items | where("featured", true) %}
