@@ -2,7 +2,9 @@ backend:
   name: github
   repo: Aurora-Web-Co/EHCeramics
   branch: main
-  base_url: https://ehceramics-oauth.lewism1912.workers.dev
+  # Auth uses Netlify's built-in GitHub OAuth provider (base_url defaults to
+  # https://api.netlify.com). Only GitHub users with write access to the repo
+  # can log in and save changes.
 
 local_backend: true
 

@@ -13,3 +13,11 @@
     "public/assets/images",
     ".cache"
   ]
+
+# Keep the CMS out of search engines and stop it being framed by other sites
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "same-origin"
