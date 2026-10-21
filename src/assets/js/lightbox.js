@@ -72,9 +72,14 @@
     currentIndex = index;
     const n = group.length;
     const imgs = n > 1 ? [group[n - 1], ...group, group[0]] : group;
-    slidesEl.innerHTML = imgs
-      .map((img) => `<img src="${img.src}" alt="${img.alt || ""}" />`)
-      .join("");
+    slidesEl.replaceChildren(
+      ...imgs.map((img) => {
+        const el = document.createElement("img");
+        el.src = img.src;
+        el.alt = img.alt || "";
+        return el;
+      })
+    );
     virtualIndex = n > 1 ? index + 1 : 0;
     jump(virtualIndex);
     const solo = n === 1;
