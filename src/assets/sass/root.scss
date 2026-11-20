@@ -105,6 +105,28 @@
     align-items: center;
   }
 
+  /* Underline that grows from the left on hover (matches the nav links) */
+  .cs-hover-underline {
+    position: relative;
+    text-decoration: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: currentColor;
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+      width: 100%;
+    }
+  }
+
   /* Button */
   .cs-button-solid {
     display: inline-block;
@@ -481,6 +503,8 @@
 
     .cs-nav-link,
     .cs-contact-link {
+      // inline-block gives a whole-pixel box so the hover underline renders crisp
+      display: inline-block;
       font-size: 0.875rem;
       color: var(--bodyTextColor);
       text-decoration: none;
@@ -490,6 +514,12 @@
         color: var(--primary);
       }
       padding: 1rem 0 0 0;
+    }
+
+    // The top padding only ever applied to the email link; page links were
+    // inline, so it had no effect on them. Keep their spacing unchanged.
+    .cs-nav-link {
+      padding: 0;
     }
 
     .cs-copyright {
